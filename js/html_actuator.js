@@ -1,4 +1,5 @@
 function HTMLActuator() {
+  this.gameContainer = document.querySelector(".game-container");
   this.tileContainer    = document.querySelector(".tile-container");
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
@@ -9,6 +10,8 @@ function HTMLActuator() {
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
+  
+  this.gameContainer.className = "game-container container-size-" + grid.size;
 
   window.requestAnimationFrame(function () {
     self.clearContainer(self.tileContainer);
