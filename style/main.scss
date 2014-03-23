@@ -1,10 +1,10 @@
 @import "helpers";
 @import "fonts/clear-sans.css";
 
-$field-width: 1200px;
 $grid-spacing: 15px;
 $grid-row-cells: 10;
-$tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
+$tile-size: (500 - $grid-spacing * (4 + 1)) / 4;
+$field-width: $grid-row-cells * ($tile-size + $grid-spacing*2);
 $tile-border-radius: 3px;
 
 $mobile-threshold: $field-width + 20px;
@@ -146,6 +146,17 @@ hr {
   margin: 0 auto;
 }
 
+@for $x from 1 through $grid-row-cells {
+	$curWidth: $x * ($tile-size + $grid-spacing*2);
+	
+	.container-#{$x} {
+  		width: $curWidth;
+  		margin: 0 auto;
+	}
+}
+
+
+
 @include keyframes(fade-in) {
   0% {
     opacity: 0;
@@ -170,7 +181,7 @@ hr {
 
 // Game field mixin used to render CSS at different width
 @mixin game-field {
-  .game-container {
+ 	 .game-container {
     margin-top: 40px;
     position: relative;
     padding: $grid-spacing;
@@ -182,8 +193,6 @@ hr {
 
     background: $game-container-background;
     border-radius: $tile-border-radius * 2;
-    width: $field-width;
-    height: $field-width;
     -ms-touch-action: none;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -302,6 +311,14 @@ hr {
       }
     }
   }
+  
+  @for $x from 1 through $grid-row-cells {
+	$curWidth: $x * ($tile-size + $grid-spacing*2);
+	.container-size-#{$x} {
+		width: $curWidth;
+    	height: $curWidth;
+	}
+}
 }
 
 // End of game-field mixin
@@ -456,11 +473,12 @@ hr {
 }
 
 @include smaller($mobile-threshold) {
+
   // Redefine variables for smaller screens
-  $field-width: 280px;
   $grid-spacing: 10px;
   $grid-row-cells: 4;
-  $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
+  $tile-size: (280 - $grid-spacing * (4 + 1)) / 4;
+  $field-width: $grid-row-cells * ($tile-size + $grid-spacing*2);
   $tile-border-radius: 3px;
 
   html, body {

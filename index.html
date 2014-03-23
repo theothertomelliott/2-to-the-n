@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>2048</title>
+  <title>2^n</title>
 
   <link href="style/main.css" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="favicon.ico">
@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
-  <div class="container">
+  <div class="container-5">
     <div class="heading">
       <h1 class="title">2048</h1>
       <div class="scores-container">
@@ -24,12 +24,20 @@
     </div>
     <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
 
-    <div class="game-container">
+    <div class="game-container container-size-5">
       <div class="game-message">
         <p></p>
         <div class="lower">
 	        <a class="keep-playing-button">Keep going</a>
           <a class="retry-button">Try again</a>
+        </div>
+      </div>
+      
+      <div class="game-message">
+        <p></p>
+        <div class="lower">
+	        <a class="keep-playing-button">Select a mode</a>
+          <a class="retry-button">4x4 -> 2048</a>
         </div>
       </div>
 
