@@ -1,6 +1,8 @@
-function GameManager(size, InputManager, Actuator, ScoreManager) {
-  this.size         = size; // Size of the grid
-  this.winningTile = 2048;
+function GameManager(InputManager, Actuator, ScoreManager) {
+  // Default mode
+  this.size         = 5; // Size of the grid
+  this.winningTile = 4096;
+  
   this.inputManager = new InputManager;
   this.scoreManager = new ScoreManager;
   this.actuator     = new Actuator;
