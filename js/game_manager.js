@@ -45,6 +45,8 @@ GameManager.prototype.setup = function () {
   // Add the initial tiles
   this.addStartTiles();
 
+  this.actuator.buildGrid(this.grid);
+
   // Update the actuator
   this.actuate();
 };
