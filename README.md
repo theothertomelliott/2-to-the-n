@@ -5,7 +5,7 @@ Made for the sake of the exercise, but heck, it might be fun too [Play it here!]
 
 ### Screenshot
 
-[![Screenshot](http://www.theothertomelliott.com/wp-content/uploads/2014/03/Screen-Shot-2014-03-23-at-22.37.03.png)
+![Screenshot](http://www.theothertomelliott.com/wp-content/uploads/2014/03/Screen-Shot-2014-03-23-at-22.37.03.png)
 
 ## Contributing
 
