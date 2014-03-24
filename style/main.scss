@@ -4,7 +4,7 @@
 $grid-spacing: 15px;
 $grid-row-cells: 10;
 $tile-size: (500 - $grid-spacing * (4 + 1)) / 4;
-$field-width: $grid-row-cells * ($tile-size + $grid-spacing*2);
+$field-width: ($grid-row-cells * $tile-size) + ($grid-spacing * ($grid-row-cells + 1));
 $tile-border-radius: 3px;
 
 $mobile-threshold: $field-width + 20px;
@@ -141,13 +141,8 @@ hr {
   margin-bottom: 30px;
 }
 
-.container {
-  width: $field-width;
-  margin: 0 auto;
-}
-
 @for $x from 1 through $grid-row-cells {
-	$curWidth: $x * ($tile-size + $grid-spacing*2);
+	$curWidth: ($x * $tile-size) + (($x + 1) * $grid-spacing);
 	
 	.container-#{$x} {
   		width: $curWidth;
@@ -198,8 +193,15 @@ hr {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 
-    .game-message {
-      display: none;
+	.mode-message {
+		display: none;
+	}
+	
+	.game-message {
+		display: none;
+	}
+
+    .center-message {
 
       position: absolute;
       top: 0;
@@ -248,7 +250,7 @@ hr {
 	}
       }
 
-      &.game-won, &.game-over {
+      &.game-won, &.game-over, &.message-visible {
         display: block;
       }
     }
@@ -313,7 +315,7 @@ hr {
   }
   
   @for $x from 1 through $grid-row-cells {
-	$curWidth: $x * ($tile-size + $grid-spacing*2);
+	$curWidth: ($x * $tile-size) + (($x + 1) * $grid-spacing);
 	.container-size-#{$x} {
 		width: $curWidth;
     	height: $curWidth;
@@ -478,7 +480,7 @@ hr {
   $grid-spacing: 10px;
   $grid-row-cells: 4;
   $tile-size: (280 - $grid-spacing * (4 + 1)) / 4;
-  $field-width: $grid-row-cells * ($tile-size + $grid-spacing*2);
+  $field-width: ($grid-row-cells * $tile-size) + ($grid-spacing * ($grid-row-cells - 1));
   $tile-border-radius: 3px;
 
   html, body {
@@ -522,7 +524,7 @@ hr {
     font-size: 35px;
   }
 
-  .game-message {
+  .center-message {
     p {
       font-size: 30px !important;
       height: 30px !important;

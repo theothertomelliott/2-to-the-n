@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
-  <div class="container-5">
+  <div class="container">
     <div class="heading">
       <h1 class="title">2^n</h1>
       <div class="scores-container">
@@ -25,7 +25,7 @@
     <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
 
     <div class="game-container">
-      <div class="game-message">
+      <div class="center-message game-message">
         <p></p>
         <div class="lower">
 	        <a class="keep-playing-button">Keep going</a>
@@ -33,11 +33,12 @@
         </div>
       </div>
       
-      <div class="game-message">
-        <p></p>
+      <div class="center-message mode-message message-visible">
+        <p>Select a mode</p>
         <div class="lower">
-	        <a class="keep-playing-button">Select a mode</a>
-          <a class="retry-button">4x4 -> 2048</a>
+        	<a class="new-2048-button">2048</a><br/><br/>
+        	<a class="new-4096-button">4096</a><br/><br/>
+        	<a class="new-8192-button">8192</a><br/><br/>
         </div>
       </div>
 

@@ -67,6 +67,22 @@ KeyboardInputManager.prototype.listen = function () {
   var retry = document.querySelector(".retry-button");
   retry.addEventListener("click", this.restart.bind(this));
   retry.addEventListener(this.eventTouchend, this.restart.bind(this));
+  
+  var retry = document.querySelector(".new-2048-button");
+  retry.addEventListener("click", this.new2048.bind(this));
+  retry.addEventListener(this.eventTouchend, this.new2048.bind(this));
+  
+  var retry = document.querySelector(".new-4096-button");
+  retry.addEventListener("click", this.new4096.bind(this));
+  retry.addEventListener(this.eventTouchend, this.new4096.bind(this));
+  
+    var retry = document.querySelector(".new-8192-button");
+  retry.addEventListener("click", this.new8192.bind(this));
+  retry.addEventListener(this.eventTouchend, this.new8192.bind(this));
+  
+   var retry = document.querySelector(".retry-button");
+  retry.addEventListener("click", this.restart.bind(this));
+  retry.addEventListener(this.eventTouchend, this.restart.bind(this));
 
   var keepPlaying = document.querySelector(".keep-playing-button");
   keepPlaying.addEventListener("click", this.keepPlaying.bind(this));
@@ -117,6 +133,21 @@ KeyboardInputManager.prototype.listen = function () {
       self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
     }
   });
+};
+
+KeyboardInputManager.prototype.new2048 = function (event) {
+  event.preventDefault();
+  this.emit("new2048");
+};
+
+KeyboardInputManager.prototype.new4096 = function (event) {
+  event.preventDefault();
+  this.emit("new4096");
+};
+
+KeyboardInputManager.prototype.new8192 = function (event) {
+  event.preventDefault();
+  this.emit("new8192");
 };
 
 KeyboardInputManager.prototype.restart = function (event) {

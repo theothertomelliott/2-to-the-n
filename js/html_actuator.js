@@ -1,16 +1,20 @@
 function HTMLActuator() {
+  this.mainContainer = document.querySelector(".container");
   this.gameContainer = document.querySelector(".game-container");
   this.gridContainer = document.querySelector(".grid-container");
   this.tileContainer    = document.querySelector(".tile-container");
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
+  this.modeContainer = document.querySelector(".mode-message");
 
   this.score = 0;
   
 }
 
 HTMLActuator.prototype.buildGrid = function(grid){
+
+	this.mainContainer.className = "container container-" + grid.size;
 
 	this.gameContainer.className = "game-container container-size-" + grid.size;
   
@@ -157,4 +161,5 @@ HTMLActuator.prototype.clearMessage = function () {
   // IE only takes one value to remove at a time.
   this.messageContainer.classList.remove("game-won");
   this.messageContainer.classList.remove("game-over");
+  this.modeContainer.classList.remove("message-visible");
 };

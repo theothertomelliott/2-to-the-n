@@ -8,6 +8,9 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
+  this.inputManager.on("new2048", this.new2048.bind(this));
+  this.inputManager.on("new4096", this.new4096.bind(this));
+  this.inputManager.on("new8192", this.new8192.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
 
   this.setup();
@@ -17,6 +20,25 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
 GameManager.prototype.restart = function () {
   this.actuator.continue();
   this.setup();
+  this.start();
+};
+
+// Restart the game
+GameManager.prototype.new2048 = function () {
+  this.size = 4;
+  this.restart();
+};
+
+// Restart the game
+GameManager.prototype.new4096 = function () {
+  this.size = 5;
+  this.restart();
+};
+
+// Restart the game
+GameManager.prototype.new8192 = function () {
+  this.size = 6;
+  this.restart();
 };
 
 // Keep playing after winning
@@ -42,14 +64,19 @@ GameManager.prototype.setup = function () {
   this.won         = false;
   this.keepPlaying = false;
 
-  // Add the initial tiles
-  this.addStartTiles();
-
   this.actuator.buildGrid(this.grid);
 
+};
+
+GameManager.prototype.start = function(){
+  
+  // Add the initial tiles
+  this.addStartTiles();
+  
   // Update the actuator
   this.actuate();
-};
+  
+}
 
 // Set up the initial tiles to start the game with
 GameManager.prototype.addStartTiles = function () {
