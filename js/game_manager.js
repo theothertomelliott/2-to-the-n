@@ -1,5 +1,6 @@
 function GameManager(size, InputManager, Actuator, ScoreManager) {
   this.size         = size; // Size of the grid
+  this.winningTile = 2048;
   this.inputManager = new InputManager;
   this.scoreManager = new ScoreManager;
   this.actuator     = new Actuator;
@@ -25,21 +26,27 @@ GameManager.prototype.restart = function () {
 
 // Restart the game
 GameManager.prototype.new2048 = function () {
-  this.size = 4;
+  this.setMode(4, 2048);
   this.restart();
 };
 
 // Restart the game
 GameManager.prototype.new4096 = function () {
-  this.size = 5;
+  this.setMode(5, 4096);
   this.restart();
 };
 
 // Restart the game
 GameManager.prototype.new8192 = function () {
-  this.size = 6;
+  this.setMode(6, 8192);
   this.restart();
 };
+
+GameManager.prototype.setMode = function(size,winningTile){
+	this.size = size;
+	this.winningTile = winningTile;
+	this.actuator.setWinningTile(winningTile);
+}
 
 // Keep playing after winning
 GameManager.prototype.keepPlaying = function () {
@@ -168,8 +175,8 @@ GameManager.prototype.move = function (direction) {
           // Update the score
           self.score += merged.value;
 
-          // The mighty 2048 tile
-          if (merged.value === 2048) self.won = true;
+          // The mighty 2^n tile          
+          if (merged.value == self.winningTile) self.won = true;
         } else {
           self.moveTile(tile, positions.farthest);
         }

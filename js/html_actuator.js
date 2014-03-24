@@ -12,6 +12,10 @@ function HTMLActuator() {
   
 }
 
+HTMLActuator.prototype.setWinningTile = function(number){
+	document.querySelector(".winningnumber").innerHTML = number;
+}
+
 HTMLActuator.prototype.buildGrid = function(grid){
 
 	this.mainContainer.className = "container container-" + grid.size;
