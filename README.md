@@ -13,4 +13,4 @@ I'd welcome contributions to my fork, but if you've got a great idea, the [origi
 
 ## License
 
-As with the original, 2^n is licensed under the [MIT license.](https://github.com/gabrielecirulli/2048/blob/master/LICENSE.txt)
+As with the original, 2^n is licensed under the [MIT license.](https://github.com/theothertomelliott/2-to-the-n/blob/master/LICENSE.txt)
