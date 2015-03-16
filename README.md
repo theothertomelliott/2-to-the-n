@@ -1,7 +1,7 @@
 # 2^n
 A silly clone of [2048](http://gabrielecirulli.github.io/2048/), based on [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone).
 
-Made for the sake of the exercise, but heck, it might be fun too [Play it here!](http://theothertomelliott.github.io/)
+Made for the sake of the exercise, but heck, it might be fun too [Play it here!](http://theothertomelliott.github.io/2-to-the-n)
 
 ### Screenshot
 
